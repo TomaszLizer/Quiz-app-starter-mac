@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct Trivia_QuizApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let api = QuizApi()
+            let game = QuizGame(api: api)
+            QuizGameView()
+                .environmentObject(game)
         }
     }
 }
